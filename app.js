@@ -2,7 +2,6 @@ var express    = require('express');
 var bodyParser = require('body-parser');
 var app        = express();
 var morgan     = require('morgan');
-var exphbs  = require('express-handlebars');
 var katex = require('katex')
 var url = require('url');
 // configure app
@@ -14,14 +13,13 @@ app.use(bodyParser.json());
 
 var port     = process.env.PORT || 3000; // set our port
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+app.set('view engine', 'jade');
 app.use('/static',express.static(__dirname + '/static'))
-
+app.set('views',__dirname + '/templates');
 
 app.get('/',function (req,res)
 {
-    res.render('home')
+    res.render('home.jade')
 })
 
 app.post('/',function (req,res)
@@ -33,18 +31,22 @@ app.get('/latex',function(req,res)
 {
     console.log(req.query.inputText);
     console.log("yay");
-    res.render('result')
+    res.render('latex.jade',{inputText: req.query.inputText})
 })
 
 app.get('/services/oembed',function (req,res)
 {
-    var url_parts = url.parse(req.query.inputText, true);
-    var query = url_parts.query;
-    console.log(query);
+    console.log(req.query.url);
     var embedJSON = {}
+    embedJSON["provider_url"] = "https://robin.localtunnel.me"
     embedJSON["type"] = "rich"
-    embedJSON["version"] = "1.0"
-    embedJSON["html"] = <iframe width="100%" height="400" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F293&show_artwork=true"></iframe>
+    embedJSON["version"] = 1
+    embedJSON["width"] = "100%"
+    embedJSON["height"] = 400
+    embedJSON["title"] = "MathEmbed"
+    embedJSON["description"] = "An app for Math"
+    embedJSON["thumbnail_url"] = "https://robin.localtunnel.me/static/thumb.png"
+    embedJSON["html"] = "<iframe width=\"100%\" height=\"400\" scrolling=\"no\" frameborder=\"no\" src=\"" + req.query.url+"\"></iframe>"
     res.json(embedJSON)
 })
 
