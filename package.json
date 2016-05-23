@@ -1,0 +1,32 @@
+{
+  "name": "mathembed",
+  "version": "1.0.0",
+  "description": "oEmbed provider app that lets you embed LaTeX equations in your website",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon --debug-brk app.js",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeOfRobin/MathEmbed.git"
+  },
+  "keywords": [
+    "LaTeX",
+    "node"
+  ],
+  "author": "Robin Malhotra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeOfRobin/MathEmbed/issues"
+  },
+  "homepage": "https://github.com/codeOfRobin/MathEmbed#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "katex": "^0.6.0",
+    "morgan": "^1.7.0",
+    "url": "^0.11.0"
+  }
+}
