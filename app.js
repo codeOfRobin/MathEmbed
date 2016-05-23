@@ -50,4 +50,4 @@ app.get('/services/oembed',function (req,res)
     res.json(embedJSON)
 })
 
-app.listen(3000)
+app.listen(process.env.PORT || 8080)
