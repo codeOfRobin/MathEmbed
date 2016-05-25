@@ -42,7 +42,7 @@ app.get('/oembed',function (req,res)
     embedJSON["type"] = "rich"
     embedJSON["version"] = "1.0"
     embedJSON["width"] = "100%"
-    embedJSON["height"] = 400
+    embedJSON["height"] = 100
     embedJSON["title"] = "MathEmbed"
     embedJSON["description"] = "An app for Math"
     embedJSON["thumbnail_url"] = "https://mathembed.herokuapp.com/static/thumb.png"
