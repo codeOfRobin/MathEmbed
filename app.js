@@ -34,7 +34,7 @@ app.get('/latex',function(req,res)
     res.render('latex.jade',{inputText: req.query.inputText})
 })
 
-app.get('/services/oembed',function (req,res)
+app.get('/oembed',function (req,res)
 {
     console.log(req.query.url);
     var embedJSON = {}
