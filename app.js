@@ -34,18 +34,43 @@ app.get('/latex',function(req,res)
     res.render('latex.jade',{inputText: req.query.inputText})
 })
 
-app.get('/oembed',function (req,res)
+app.get('/services/oembed',function (req,res)
 {
     console.log(req.query.url);
     var embedJSON = {}
     embedJSON["provider_url"] = "https://mathembed.herokuapp.com"
+<<<<<<< HEAD
     embedJSON["type"] = "photo"
     embedJSON["version"] = "1.0"
+=======
+    embedJSON["type"] = "rich"
+    embedJSON["version"] = 1
+>>>>>>> parent of fa395f9... kevin marks
     embedJSON["width"] = "100%"
     embedJSON["height"] = 400
     embedJSON["thumbnail_url"] = "https://mathembed.herokuapp.com/static/output.svg"
     embedJSON["url"] = "https://mathembed.herokuapp.com/static/output.svg"
     res.json(embedJSON)
+<<<<<<< HEAD
+=======
+
+    // var x = {
+    //     "version": 1,
+    //     "type": "rich",
+    //     "provider_name": "SoundCloud",
+    //     "provider_url": "http://soundcloud.com",
+    //     "height": 400,
+    //     "width": "100%",
+    //     "title": "Flickermood by Forss",
+    //     "description": "From the Soulhack album,&nbsp;recently featured in this ad <a href=\"https://www.dswshoes.com/tv_commercial.jsp?m=october2007\">https://www.dswshoes.com/tv_commercial.jsp?m=october2007</a> ",
+    //     "thumbnail_url": "http://i1.sndcdn.com/artworks-000067273316-smsiqx-t500x500.jpg",
+    //     "html": "<iframe width=\"100%\" height=\"400\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F293&show_artwork=true\"></iframe>",
+    //     "author_name": "Forss",
+    //     "author_url": "https://soundcloud.com/forss"
+    // }
+    //
+    // res.json(x)
+>>>>>>> parent of fa395f9... kevin marks
 })
 
 app.listen(process.env.PORT || 3000)
