@@ -36,7 +36,7 @@ app.get('/latex',function(req,res)
 {
     console.log(req.query.inputText);
     console.log("yay");
-    res.render('latex.jade',{inputText: req.query.inputText.addSlashes(), inputEmbedText: req.query.inputText})
+    res.render('latex.jade',{inputText: req.query.inputText.addSlashes(), inputEmbedText: encodeURIComponent(req.query.inputText)})
 })
 
 app.get('/oembed',function (req,res)
