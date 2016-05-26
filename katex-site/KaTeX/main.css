@@ -34,7 +34,7 @@ header{
 }
 
 .container {
-    margin: auto;
+    margin: 50px auto;
     width: 800px;
     color: white;
 }
@@ -89,4 +89,9 @@ header{
     font-size: 18px;
     padding: 10px 0;
     overflow: scroll;
+}
+
+.embed
+{
+    text-align: center;
 }
