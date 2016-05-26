@@ -6,10 +6,31 @@ body {
     display: flex;
     flex-direction: column;
 }
+h1{
+    color: white;
+    font-size: 3em;
+    margin: 15px auto;
+}
+h1 span{
+    font-size: 0.85em;
+    vertical-align:text-bottom;
+}
+h2{
+    color: white;
+    font-size: 1.2em;
+    font-weight: lighter;
+    margin: 10px auto;
+    text-align: center;
+}
+
 
 header{
-    height: 150px;
+    height: 175px;
     background-color: black;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .container {
