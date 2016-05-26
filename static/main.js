@@ -8,6 +8,7 @@ window.startup = function() {
     var embedLink = document.getElementById('embedLink')
     var tex = document.getElementsByClassName("tex");
 
+    katex.render("\\displaystyle{\\sum}", sigma)
     Array.prototype.forEach.call(tex, function(el) {
         katex.render(el.getAttribute("data-expr"), el);
     });
