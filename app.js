@@ -4,6 +4,11 @@ var app        = express();
 var morgan     = require('morgan');
 var katex = require('katex')
 var url = require('url');
+
+String.prototype.addSlashes = function()
+{
+    return this.replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
+}
 // configure app
 app.use(morgan('dev')); // log requests to the console
 
@@ -31,7 +36,7 @@ app.get('/latex',function(req,res)
 {
     console.log(req.query.inputText);
     console.log("yay");
-    res.render('latex.jade',{inputText: req.query.inputText})
+    res.render('latex.jade',{inputText: req.query.inputText.addSlashes()})
 })
 
 app.get('/oembed',function (req,res)

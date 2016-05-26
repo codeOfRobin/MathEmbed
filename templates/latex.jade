@@ -1,11 +1,12 @@
 doctype html
 html(lang="en")
     head
-        title MathEmbed - Because Robin is Awesome
+        title MathEmbed : Embed TeX anywhere
         link(rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css")
         link(rel= "alternate" type ="application/json+oembed" href = "https://mathembed.herokuapp.com/oembed?url=https%3A%2F%2Fmathembed.herokuapp.com%2Flatex?inputText=#{inputText}")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js")
     body
         h1 = inputText
         script.
-            katex.render("#{inputText}", document.body, { displayMode: true });
+            console.log("#{inputText}")
+            katex.render("\\displaystyle{#{inputText}}", document.body)
