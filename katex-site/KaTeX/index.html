@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>KaTeX – The fastest math typesetting library for the web</title>
+    <link href="bower_components/katex/dist/katex.min.css" type="text/css" rel="stylesheet">
+    <script src="bower_components/katex/dist/katex.min.js" type="text/javascript"></script>
+    <link href="main.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css">
+
+</head>
+<body>
+    <header>
+
+    </header>
+    <div class="container">
+        <div class="demo">
+            <div class="demo-left">
+                <div class="demo-instructions">
+                    Type an expression:
+                </div>
+                <textarea id="demo-input" spellcheck="false">f(x) = \int_{-\infty}^\infty \hat f(\xi)\,e^{2 \pi i \xi x} \,d\xi</textarea>
+                </div>
+                <div class="demo-right">
+                    <div class="demo-instructions">
+                        See how it'll render in your embed using <span class="tex" data-expr="\KaTeX">KaTeX</span>:
+                    </div>
+                    <div id="demo-output"></div>
+                </div>
+            </div>
+        </div>
+        <script src="main.js" type="text/javascript"></script>
+        <script type="text/javascript">
+        startup();
+        </script>
+    </body>
+    </html>
