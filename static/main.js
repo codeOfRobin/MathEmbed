@@ -20,8 +20,8 @@ window.startup = function() {
     function doDemo() {
         katex.render("\\displaystyle{" + demoInput.value + "}", demoOutput);
         console.log("\\displaystyle{" + demoInput.value + "}");
-        embedLink.textContent = "http://mathembed.herokuapp.com/latex?inputText=" + encodeURIComponent(demoInput.value)
-        embedLink.href = "http://mathembed.herokuapp.com/latex?inputText=" + encodeURIComponent(demoInput.value)
+        embedLink.textContent = "http://mathembed.com/latex?inputText=" + encodeURIComponent(demoInput.value)
+        embedLink.href = "http://mathembed.com/latex?inputText=" + encodeURIComponent(demoInput.value)
     }
 
     demoInput.addEventListener("input", function() {

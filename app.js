@@ -43,14 +43,13 @@ app.get('/oembed',function (req,res)
 {
     console.log(req.query.url);
     var embedJSON = {}
-    embedJSON["provider_url"] = "https://mathembed.herokuapp.com"
+    embedJSON["provider_url"] = "http://mathembed.com"
     embedJSON["type"] = "rich"
     embedJSON["version"] = "1.0"
     embedJSON["width"] = "100%"
     embedJSON["height"] = 100
     embedJSON["title"] = "MathEmbed"
-    embedJSON["description"] = "An app for Math"
-    embedJSON["thumbnail_url"] = "https://mathembed.herokuapp.com/static/thumb.png"
+    embedJSON["description"] = "An app for Embedding Math"
     embedJSON["html"] = "<iframe width=\"100%\" height=\"400\" scrolling=\"no\" frameborder=\"no\" src=\"" + req.query.url+"\"></iframe>"
     res.json(embedJSON)
 })
