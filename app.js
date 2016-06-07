@@ -43,7 +43,7 @@ app.get('/oembed',function (req,res)
 {
     console.log(req.query.url);
     var embedJSON = {}
-    embedJSON["provider_url"] = "http://mathembed.com"
+    embedJSON["provider_url"] = "https://mathembed.com"
     embedJSON["type"] = "rich"
     embedJSON["version"] = "1.0"
     embedJSON["width"] = "100%"
