@@ -46,10 +46,8 @@ app.get('/oembed',function (req,res)
     embedJSON["provider_url"] = "https://mathembed.com"
     embedJSON["type"] = "rich"
     embedJSON["version"] = "1.0"
-    embedJSON["width"] = "100%"
+    embedJSON["width"] = 400
     embedJSON["height"] = 100
-    embedJSON["title"] = "MathEmbed"
-    embedJSON["description"] = "An app for Embedding Math"
     embedJSON["html"] = "<iframe width=\"100%\" height=\"400\" scrolling=\"no\" frameborder=\"no\" src=\"" + req.query.url+"\"></iframe>"
     res.json(embedJSON)
 })
