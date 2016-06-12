@@ -8,7 +8,6 @@ html(lang="en")
         link(href='./static/result.css', type='text/css', rel='stylesheet')
         script(src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js")
     body(style = "background-color:white")
-        h1 = inputText
         script.
             console.log("#{inputText}")
             katex.render("\\displaystyle{#{inputText}}", document.body)

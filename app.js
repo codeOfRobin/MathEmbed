@@ -34,32 +34,35 @@ app.post('/',function (req,res)
 
 app.get('/latex',function(req,res)
 {
-    var referrer = req.query.referrer
-    if(referrer)
-    {
-        var actualURL = url.parse(referrer,true).query.url
-        var actualText = url.parse(actualURL,true)
-        console.log(actualText.query.inputText)
-        res.render('latex.jade',{inputText: actualText.query.inputText.addSlashes(), inputEmbedText: encodeURIComponent(actualText.query.inputText)})      
-    }
-    else
-    {
+    // var referrer = req.query.referrer
+    // if(referrer)
+    // {
+        // console.log(decodeURIComponent(req.query.inputText))
+        // console.log(decodeURI(req.query.referrer))
+        // var actualURL = url.parse(referrer,true).query.url
+        // var actualText = url.parse(actualURL,true)
+        // console.log(actualText.query.inputText)
+        // res.render('latex.jade',{inputText: actualText.query.inputText.addSlashes(), inputEmbedText: encodeURIComponent(actualText.query.inputText)})      
+    // }
+    // else
+    // {
         console.log(req.query.inputText);
         console.log("yay");
-        res.render('latex.jade',{inputText: req.query.inputText.addSlashes(), inputEmbedText: encodeURIComponent(req.query.inputText)})    
-    }
+        res.render('latex.jade',{inputText: req.query.inputText.addSlashes(), inputEmbedText: encodeURIComponent(encodeURIComponent(req.query.inputText))})    
+    // }
 })
 
 app.get('/oembed',function (req,res)
 {
     console.log(req.query.url);
+    decodedURL = decodeURI(req.query.url)
     var embedJSON = {}
     embedJSON["provider_url"] = "https://mathembed.com"
     embedJSON["type"] = "rich"
     embedJSON["version"] = "1.0"
     embedJSON["width"] = 400
     embedJSON["height"] = 200
-    embedJSON["html"] = "<iframe width=\"100%\" height=\"200\" scrolling=\"no\" frameborder=\"no\" src=\"" + req.query.url+"\"></iframe>"
+    embedJSON["html"] = "<iframe width=\"100%\" height=\"200\" scrolling=\"no\" frameborder=\"no\" src=\"" + encodeURIComponent(req.query.url)+"\"></iframe>"
     res.json(embedJSON)
 })
 
