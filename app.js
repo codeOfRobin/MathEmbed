@@ -35,10 +35,19 @@ app.post('/',function (req,res)
 app.get('/latex',function(req,res)
 {
     var referrer = req.query.referrer
-    var actualURL = url.parse(referrer,true).query.url
-    var actualText = url.parse(actualURL,true)
-    console.log(actualText.query.inputText)
-    res.render('latex.jade',{inputText: actualText.query.inputText.addSlashes(), inputEmbedText: encodeURIComponent(actualText.query.inputText)})
+    if(referrer)
+    {
+        var actualURL = url.parse(referrer,true).query.url
+        var actualText = url.parse(actualURL,true)
+        console.log(actualText.query.inputText)
+        res.render('latex.jade',{inputText: actualText.query.inputText.addSlashes(), inputEmbedText: encodeURIComponent(actualText.query.inputText)})      
+    }
+    else
+    {
+        console.log(req.query.inputText);
+        console.log("yay");
+        res.render('latex.jade',{inputText: req.query.inputText.addSlashes(), inputEmbedText: encodeURIComponent(req.query.inputText)})    
+    }
 })
 
 app.get('/oembed',function (req,res)
