@@ -62,7 +62,7 @@ app.get('/oembed',function (req,res)
     embedJSON["version"] = "1.0"
     embedJSON["width"] = 400
     embedJSON["height"] = 200
-    embedJSON["html"] = "<iframe width=\"100%\" height=\"200\" scrolling=\"no\" frameborder=\"no\" src=\"" + encodeURIComponent(req.query.url)+"\"></iframe>"
+    embedJSON["html"] = "<iframe width=\"100%\" height=\"200\" scrolling=\"no\" frameborder=\"no\" src=\"" +(req.query.url)+"\"></iframe>"
     res.json(embedJSON)
 })
 
