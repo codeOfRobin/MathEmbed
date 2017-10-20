@@ -9,5 +9,12 @@ html(lang="en")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js")
     body(style = "background-color:white")
         script.
-            console.log("#{inputText}")
-            katex.render("\\displaystyle{#{inputText}}", document.body)
+            var str = `\\displaystyle{#{inputText}}`; // https://stackoverflow.com/questions/5796718
+            var element = document.createElement('div');
+            str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+            str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+            element.innerHTML = str;
+            str = element.textContent;
+            element.textContent = '';
+            console.log(str)
+            katex.render(str, document.body)
