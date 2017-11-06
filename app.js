@@ -60,9 +60,9 @@ app.get('/oembed',function (req,res)
     embedJSON["provider_url"] = "https://mathembed.com"
     embedJSON["type"] = "rich"
     embedJSON["version"] = "1.0"
-    embedJSON["width"] = 400
-    embedJSON["height"] = 200
-    embedJSON["html"] = "<iframe width=\"100%\" height=\"200\" scrolling=\"no\" frameborder=\"no\" src=\"" +(req.query.url)+"\"></iframe>"
+    embedJSON["width"] = 400 if !req.query.width else req.query.width
+    embedJSON["height"] = 200 if !req.query.height else req.query.height
+    embedJSON["html"] = "<iframe width=\"100%\" height=\"" + embedJSON["height"] + "\" scrolling=\"no\" frameborder=\"no\" src=\"" +(req.query.url)+"\"></iframe>"
     res.json(embedJSON)
 })
 
